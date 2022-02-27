@@ -11,6 +11,8 @@ output:
   bookdown::pdf_document2
 toc: FALSE
 bibliography: references.bib
+header-includes:
+  - \usepackage{subfig}
 ---
 
 ```{r setup, include=FALSE}
@@ -103,5 +105,35 @@ Weaknesses and next steps should also be included.
 
 
 # References
+
+
+```{r echo = FALSE, fig-sub, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
+knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png"))
+```
+# LGBT Section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
