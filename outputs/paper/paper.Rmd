@@ -5,9 +5,9 @@ author:
   - Lantao Cui
   - Huakun Shen
   - Sijian Wu
-thanks: "Code and data are available at: https://github.com/cuilantao/STA304-Paper-2"
+thanks: "Replication avaliable at https://doi.org/10.48152/ssrp-mbxx-jm47. Code and data avaliable at https://github.com/cuilantao/STA304-Paper-2"         
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "Between 1980 and the Great Recession, US birth rate varied between a tight range of roughly 65 to 70 birth per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. In this paper, we aim to find out the reason behind the decline, all of the data are collected from the CDC Vital Statistics Births Reports. Our findings can help to understand the reason behind the drop. "
+abstract: "This paper is based on Kearney's paper The Puzzle of Falling US Birth Rates since the Great Recession Between 1980. ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, US birth rate varied between a tight range of roughly 65 to 70 birth per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. In this paper, we aim to find out the reason behind the decline, all of the data are collected from the CDC Vital Statistics Births Reports. Our findings can help to understand the reason behind the drop. "
 output:
   bookdown::pdf_document2
 toc: FALSE
