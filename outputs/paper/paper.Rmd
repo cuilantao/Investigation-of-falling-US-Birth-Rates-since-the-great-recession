@@ -35,6 +35,7 @@ Prior research suggests that stress may be linked to riskier sextual activity. F
 
 
 
+
 # Data
 
 We started our analysis by using R [@r], dplyr[@dplyr], tidyverse[@tidyverse]. Graphs are generated using ggpubr[@ggpubr] and ggplot2[@ggplot2].
@@ -56,6 +57,7 @@ str(us_data)
 sa_data <- read_csv(here::here("inputs/data/south-africa-population-2022-02-26.csv"))
 sa_data$date <- as.Date(sa_data$date)
 str(sa_data)
+
 ```
 
 
@@ -64,14 +66,15 @@ str(sa_data)
 #Generating time series graphs of births per 1000 people for each least affected country
 
 china <- ggplot(china_data,aes(x=date,y= `Births per 1000 People`)) + 
+
    labs(title = "China",
         x = "Year",
         y = "Births per 1000 People ") +
   theme_minimal() +
   geom_line()
 
-
 japan <- ggplot(japan_data,aes(x=date,y= Births.per.1000.People)) + 
+
    labs(title = "Japan",
         x = "Year",
         y = "Births per 1000 People ") +
@@ -79,12 +82,15 @@ japan <- ggplot(japan_data,aes(x=date,y= Births.per.1000.People)) +
   geom_line()
 
 
+
 us <- ggplot(us_data,aes(x=date,y= `Births per 1000 People`)) + 
+
    labs(title = "The United States",
         x = "Year",
         y = "Births per 1000 People ") +
   theme_minimal() +
   geom_line()
+
 
 sa <- ggplot(sa_data,aes(x=date,y= `Births per 1000 People`)) + 
    labs(title = "South Africa",
@@ -101,6 +107,7 @@ ggarrange(china, japan, us, sa + rremove("x.text"),
 ```{r, include=FALSE}
 #importing the Birth Rate 1950-2022 of the most affected countries: Ukraine, Argentina, Hungary, and Poland from https://www.macrotrends.net/countries/USA/united-states/birth-rate
 #Then modify the 'date' variable of each into Date format for graphs by using as.Date
+
 ukraine_data <- read_csv(here::here("inputs/data/ukraine-population-2022-02-26.csv"))
 ukraine_data$date <- as.Date(ukraine_data$date)
 str(ukraine_data)
@@ -112,6 +119,7 @@ hungary_data <- read_csv(here::here("inputs/data/hungary-population-2022-02-27.c
 hungary_data$date <- as.Date(hungary_data$date)
 
 poland_data <- read_csv(here::here("inputs/data/poland-population-2022-02-26.csv"))
+
 poland_data$date <- as.Date(poland_data$date)
 
 
@@ -121,12 +129,14 @@ poland_data$date <- as.Date(poland_data$date)
 
 ```{r, echo=FALSE}
 #Generating time series graphs of births per 1000 people for each most affected country
+
 ukraine <- ggplot(ukraine_data,aes(x=date,y= `Births per 1000 People`)) + 
    labs(title = "Ukraine",
         x = "Year",
         y = "Births per 1000 People ") +
   theme_minimal() +
   geom_line()
+
 
 
 argentina <- ggplot(argentina_data,aes(x=date,y= `Births per 1000 People`)) + 
@@ -155,7 +165,6 @@ poland <- ggplot(poland_data,aes(x=date,y= `Births per 1000 People`)) +
 ggarrange(ukraine, argentina, hungary, poland + rremove("x.text"),
           ncol = 2, nrow = 2)
 ```
-
 
 # Model
 
@@ -187,6 +196,7 @@ Weaknesses and next steps should also be included.
 
 
 \newpage
+
 
 
 # References
