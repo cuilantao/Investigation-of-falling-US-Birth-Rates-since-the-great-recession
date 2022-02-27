@@ -181,6 +181,50 @@ If my paper were 10 pages, then should be be at least 2.5 pages. The discussion 
 
 ## Second discussion point
 
+
+## LGBT Section
+
+The percentage of LGBT (and many other genders) has risen in recent years in the US, probably related to propaganda and political correctness.
+
+Since there is not much data for other genders, and LGBT are the majorities, we will focus on LGBT population and the potential effect they bring to birth rate.
+
+LGBT is the acronym of the following 4 genders, **L** for Lesbian, **G** for gay, **B** for bisexual, **T** for transgender. By definition, these genders by definition should have a much lower birth rate than heterosexual. Thus, the population changes in these population are very likely to make an impact on the birth rate of the US.
+
+```{r echo = FALSE, fig-gender-raising-children-distribution, fig.cap='Gender Distribution and Percentage Raising Children Distribution', fig.subcap=c('LGBT Gender Distribution', 'LGBT Percentage Raising Children', 'Same Sex Couple Gender Distribution'), out.width='.33\\linewidth', fig.asp=1, fig.ncol = 3}
+knitr::include_graphics(c("./images/LGBT-Gender-distribution.png",
+  "./images/LGBT-percentage-raising-children.png",
+  "./images/same-sex-couple-gender-distribution.png"))
+```
+
+Figure \@ref(fig:fig-gender-raising-children-distribution) shows the gender distribution of LGBT and Same Sex Couple as well as the percentage raising children.
+Figure \@ref(fig:fig-gender-raising-children-distribution) (a) and Figure \@ref(fig:fig-gender-raising-children-distribution) (c) clearly shows that more females are non-heterosexual.
+This should make a even larger impact on birth rate as only females are able to give births (in normal situations).
+
+Figure \@ref(fig:fig-gender-raising-children-distribution) (b) shows the percentage of LGBT population that raise children. 71% of the LGBT population don't raise children. With these information, we can conclude that the growth of LGBT population is able to cause a negative change in birth rate.
+
+```{r echo = FALSE, fig-density-state, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density', 'Birth Rate Distribution by State'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
+knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png", "./images/state-birth-rate-distribution.png"))
+```
+
+Figure \@ref(fig:fig-density-state) shows the population density of Same Sex Couple and LGBT by States, and birth rate distribution by State. Darker color means higher density or higher negative change in birth rate. From these plots we can see that the states with higher LGBT density and same sex couples generally have higher negative change in birth rate. We cannot conclude whether LGBT population has a large impact on US birth rate based on these plots yet, but there should be some correlation between birth rate and gender identity of Americans.
+
+[@cite_original]
+
+```{r echo = FALSE, fig-race-distribution, fig.cap='Race Distribution', fig.subcap=c('Same Sex Couple Race Distribution', 'LGBT Race Distribution'), out.width='.30\\linewidth', fig.asp=1, fig.ncol = 2, fig.align="center"}
+knitr::include_graphics(c("./images/same-sex-couple-race-distribution.png", "./images/LGBT-race-distribution.png"))
+```
+
+```{r echo = FALSE, fig-age-distribution, fig.cap='LGBT and Same Sex Couple Age Distribution', fig.subcap=c('Same Sex Couple Race Distribution', 'LGBT Race Distribution'), out.width='.40\\linewidth', fig.asp=1, fig.ncol = 2, fig.align="center"}
+knitr::include_graphics(c("./images/same-sex-couple-age-distribution.png", "./images/LGBT-age-distribution.png"))
+```
+
+```{r echo = FALSE, fig-LGBT-socioeconomic-indicators, fig.cap='LGBT Socioeconomic Indicators', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
+knitr::include_graphics("./images/LGBT-socioeconomic-indicators.png")
+```
+
+
+
+
 ## Third discussion point
 
 ## Weaknesses and next steps
@@ -204,10 +248,8 @@ Weaknesses and next steps should also be included.
 # References
 
 
-```{r echo = FALSE, fig-sub, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
-knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png"))
-```
-# LGBT Section
+
+
 
 
 
