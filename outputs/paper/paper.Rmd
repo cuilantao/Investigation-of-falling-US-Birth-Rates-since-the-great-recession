@@ -2,11 +2,12 @@
 title: "My title"
 subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - Lantao Cui
+  - Huakun Shen
+  - Sijian Wu
+thanks: "Code and data are available at: https://github.com/cuilantao/STA304-Paper-2"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "Between 1980 and the Great Recession, US birth rate varied between a tight range of roughly 65 to 70 birth per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. In this paper, we aim to find out the reason behind the decline, all of the data are collected from the CDC Vital Statistics Births Reports. Our findings can help to understand the reason behind the drop. "
 output:
   bookdown::pdf_document2
 toc: FALSE
@@ -17,60 +18,146 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(palmerpenguins)
+library(dplyr)
+library(here)
+library(ggplot2)
+library(ggpubr)
 ```
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. For instance, Section \@ref(data). R Markdown automatically makes the sections lower case and adds a dash to spaces to generate labels, for instance, Section \@ref(first-discussion-point). 
+The Great Recession has been a world-wide crisis that reconstructed the economy, and was deep, synchronous and global. Canadian GDP dropped by 3.3 percent, US GDP by close to 4 percent, that of the Euro area by 5 percent and that of Japan by more than 8 percent. The impact on international trade has been severe that all G20 countries experienced serious reductions in trade[@recession]. Although it is difficult to compare across countries since policy context, society norms and cultural preferences tend to differ, it is never possible to separately consider the effects on each country even after recovery. 
+
+
+In the United States, unemployment rates, mortgage foreclosures, and poverty rates rose while housing values fell, but the extent of these changes varied widely across local areas. Another impact from depressed economic condition is delayed childbearing, and others to hasten it. The fertility rate declined at the national level, dropping from a recent high in 2007 of 69.5 births per 1,000 women aged 15 to 44, to 63.2 for 2012.1 There was, however, great variation by state, age, and ethnicity, with younger and Hispanic women showing disproportionate decreases[@fertility]. The significant consequence on fertility rate would make us wonder how severe is America being affected by the great recession. However,  by comparing currency devaluations, equity market declines, and rising sovereign bond spreads, the U.S. is the third leas affected country[@rank].
+
+Prior research suggests that stress may be linked to riskier sextual activity. Financial hardship and poverty can negatively affect cognitive function, and shorten the time horizons over which individuals make cost-benefit determinations. Alternatively, fertility may be unaffected by economic conditions if cultural norms related to the context and timing of births are particularly influential. For example, non-marital births are more socially consequential for some racial and ethnic groups, and in some geographic areas. For some individuals, these social norms may outweigh any economic considerations[@fertility]. The same consideration of religious belief could also be applied to other countries.
 
 
 
 # Data
 
-Our data is of penguins (Figure \@ref(fig:bills)).
+We started our analysis by using R [@r], dplyr[@dplyr], tidyverse[@tidyverse]. Graphs are generated using ggpubr[@ggpubr] and ggplot2[@ggplot2].
+```{r, include=FALSE}
+#importing the Birth Rate 1950-2022 of the least affected countries: China, Japan, and the United States from https://www.macrotrends.net/countries/USA/united-states/birth-rate
+#Then modify the 'date' variable of each into Date format for graphs by using as.Date
+china_data <- read_csv(here::here("inputs/data/china-population-2022-02-25.csv"))
+china_data$date <- as.Date(china_data$date)
+str(china_data)
 
-```{r bills, fig.cap="Bills of penguins", echo = FALSE}
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+japan_data <- read.csv(here::here("inputs/data/japan-population-2022-02-25.csv"))
+japan_data$date <- as.Date(japan_data$date)
+str(japan_data)
+
+us_data <- read_csv(here::here("inputs/data/united-states-population-2022-02-26.csv"))
+us_data$date <- as.Date(us_data$date)
+str(us_data)
+
+sa_data <- read_csv(here::here("inputs/data/south-africa-population-2022-02-26.csv"))
+sa_data$date <- as.Date(sa_data$date)
+str(sa_data)
 ```
 
-Talk more about it.
 
-Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
 
-```{r billssssss, fig.cap="More bills of penguins", echo = FALSE, fig.width=8, fig.height=4}
+```{r,echo=FALSE}
+#Generating time series graphs of births per 1000 people for each least affected country
 
-# This needs to be about the random data tha tI sasmpled?
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
+china <- ggplot(china_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "China",
+        x = "Year",
+        y = "Births per 1000 People ") +
   theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+  geom_line()
+
+
+japan <- ggplot(japan_data,aes(x=date,y= Births.per.1000.People)) + 
+   labs(title = "Japan",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+
+us <- ggplot(us_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "The United States",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+sa <- ggplot(sa_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "South Africa",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+#Arranging them on the same page
+ggarrange(china, japan, us, sa + rremove("x.text"),
+          ncol = 2, nrow = 2)
 ```
 
-Talk way more about it. 
+```{r, include=FALSE}
+#importing the Birth Rate 1950-2022 of the most affected countries: Ukraine, Argentina, Hungary, and Poland from https://www.macrotrends.net/countries/USA/united-states/birth-rate
+#Then modify the 'date' variable of each into Date format for graphs by using as.Date
+ukraine_data <- read_csv(here::here("inputs/data/ukraine-population-2022-02-26.csv"))
+ukraine_data$date <- as.Date(ukraine_data$date)
+str(ukraine_data)
 
+argentina_data <- read_csv(here::here("inputs/data/argentina-population-2022-02-26.csv"))
+argentina_data$date <- as.Date(argentina_data$date)
+
+hungary_data <- read_csv(here::here("inputs/data/hungary-population-2022-02-27.csv"))
+hungary_data$date <- as.Date(hungary_data$date)
+
+poland_data <- read_csv(here::here("inputs/data/poland-population-2022-02-26.csv"))
+poland_data$date <- as.Date(poland_data$date)
+
+
+
+
+```
+
+```{r, echo=FALSE}
+#Generating time series graphs of births per 1000 people for each most affected country
+ukraine <- ggplot(ukraine_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "Ukraine",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+
+argentina <- ggplot(argentina_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "Argentina",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+
+hungary <- ggplot(hungary_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "Hungary",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+poland <- ggplot(poland_data,aes(x=date,y= `Births per 1000 People`)) + 
+   labs(title = "Poland",
+        x = "Year",
+        y = "Births per 1000 People ") +
+  theme_minimal() +
+  geom_line()
+
+
+ggarrange(ukraine, argentina, hungary, poland + rremove("x.text"),
+          ncol = 2, nrow = 2)
+```
 
 
 # Model
-
-\begin{equation}
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}  (\#eq:bayes)
-\end{equation}
-
-Equation \@ref(eq:bayes) seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
 
 
 # Results
