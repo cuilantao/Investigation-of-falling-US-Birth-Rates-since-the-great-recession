@@ -6,4 +6,9 @@ fertility rate, for example, was the LGBT movement on the early 2000s responsibl
 
 # Notes on files structure
 
-Inputs folder includes all of the necessary data. Scripts folder contains the data download and pre-processing script, and outputs folder contains the final paper.
+Inputs folder includes all of the necessary data. 
+Scripts folder contains the data download and pre-processing script, and outputs folder contains the final paper.
+
+# Reproduction
+
+To generate the paper, go to [paper.Rmd](./outputs/paper/paper.Rmd), install the libraries if you didn't, click knit to generate the pdf.
