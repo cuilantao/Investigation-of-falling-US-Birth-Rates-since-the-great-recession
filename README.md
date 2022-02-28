@@ -1,5 +1,9 @@
-# starter_folder
+# Overview of the report
 
-This repo....
+After reading Kearney's Paper "The Puzzle of Falling US Birth Rates
+since the Great Recession", we decided to investigate some other potential causes for the decline in
+fertility rate, for example, was the LGBT movement on the early 2000s responsible for the decline? We will also examine the effect of the great recession on fertility rate at a global level
 
-It is organised as follows...
+# Notes on files structure
+
+Inputs folder includes all of the necessary data. Scripts folder contains the data download and pre-processing script, and outputs folder contains the final paper.
