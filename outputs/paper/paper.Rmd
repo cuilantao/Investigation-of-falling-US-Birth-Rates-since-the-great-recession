@@ -47,6 +47,9 @@ In the United States, unemployment rates, mortgage foreclosures, and poverty rat
 
 Prior research suggests that stress may be linked to riskier sexual activity. Financial hardship and poverty can negatively affect cognitive function, and shorten the time horizons over which individuals make cost-benefit determinations. Alternatively, fertility may be unaffected by economic conditions if cultural norms related to the context and timing of births are particularly influential. For example, non-marital births are more socially consequential for some racial and ethnic groups, and in some geographic areas. For some individuals, these social norms may outweigh any economic considerations[@fertility]. The same consideration of religious belief could also be applied to other countries.
 
+As mentioned by @cite_original, the basic approach to many economic problem is maximizing utility. This approach recognized that children bring people utility but also with associated costs including time and money. This approach to modeling the decision to have a child leads to standard predictions of price and income effects. Direct consideration of costs could be like housing and medical care. Other times the price effect is indirect, like the opportunity cost of a woman’s time. Holding prices and quality constant, an increase in income will lead people to choose to have more children. This positive relationship between income and births may come as a surprise to some readers, given the negative relationship between birth rates and income or per capita GDP observed over time and place[@cite_original]. However, this is enough for us to consider whether the birth rates are world-wide affected in the same negative direction after the Great Recession.
+
+
 Another thing that might have affected the fertility rate is the rise of the LGBT community, the LGBT activity started at the 1920s and had huge progress after 2000s. A lot of laws that prohibited homosexual relationship were lifted and homosexual couples can get married legally and adopt kids, there are also propaganda that encourages homosexuality.
 
 In this paper, we will investigate the effect of the Great Recession on the birth rate in different countries, and we will also explore the effect of LGBT movement on birth rate.
@@ -55,6 +58,8 @@ In this paper, we will investigate the effect of the Great Recession on the birt
 
 We started our analysis by using R [@r], dplyr[@dplyr], tidyverse[@tidyverse]. Graphs are generated using ggpubr[@ggpubr] and ggplot2[@ggplot2].
 
+## Data Source
+We generated data from U.S. Birth Rate 1950-2022[@birthrate]. We selected top 3 countries that are affected most and least by the Great Recession according to rankings determined by comparing currency devaluations, equity market declines, and rising sovereign bond spreads These measures tend to track developments in the real economy during times of economic crisis when financial strain handicaps consumption, investment, and in many cases government spending, which limits GDP and employment growth[@rank].
 
 ```{r, include=FALSE}
 #importing the Birth Rate 1950-2022 of the least affected countries: China, Japan, and the United States from https://www.macrotrends.net/countries/USA/united-states/birth-rate
