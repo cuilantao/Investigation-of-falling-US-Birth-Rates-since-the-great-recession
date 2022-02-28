@@ -1,13 +1,14 @@
 ---
 title: "What Happened to The Birth Rate?"
-subtitle: "The Great Recession and the LGBT Movement"
+subtitle: "Impact to Birth Rate Brought By The Great Recession and The LGBT Movement"
 author: 
   - Lantao Cui
   - Huakun Shen
   - Sijian Wu
 thanks: "Replication avaliable at https://doi.org/10.48152/ssrp-mbxx-jm47. Code and data avaliable at https://github.com/cuilantao/Investigation-of-falling-US-Birth-Rates-since-the-great-recession"         
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This paper is based on Kearney's paper \"The Puzzle of Falling US Birth Rates since the Great Recession\". ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, the US birth rate varied between a tight range of roughly 65 to 70 births per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. In this paper, we will expand our research on multiple countries and find out whether the level of impact from recession would be correlated with the changes in the birth rate for different countries. We will also treat the rise in the LGBT community as a potential cause for the decline in birth rate and examine its effect."
+abstract: "This paper is based on Kearney's paper \"The Puzzle of Falling US Birth Rates since the Great Recession\". ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, the US birth rate varied between a tight range of roughly 65 to 70 births per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. Maintaining the fertility rate to be around 2.1 (replacement level) is important because low fertility rate could lead to aging of population and economic stagnation of economy. In this paper, we expand our research on multiple countries and found out that not only the US was affected by the recession, but the whole World in the context of birth rate, and the most affected countries are mostly developing countries.
+We also treat the rise in the LGBT community as a potential cause for the decline in birth rate and examine its effect, and found that the growth of LGBT population may have a cohort effect and lead caused a negative impact on the birth rate."
 output:
   bookdown::pdf_document2
 toc: FALSE
@@ -316,24 +317,23 @@ ggplot(merged_data_grouped_by, aes(x=year)) +
 Figure \@ref(fig:fig-parity) is a reproduction of a plot showing trends in births by "parity" (referring to the number of children for a given woman) from [@cite_original]. The first and second births declined a lot since 2007, but the trend lines for the third and higher order births are comparatively flat.
 The women giving their 3rd and 4th births are most likely older cohorts comparing to the cohorts giving their 1st and 2nd births. Again, this is another evidence showing the impact brought by cohort effects.
 
-"The explanation of cohort effects lies more in the way these cohorts were raised or in how they experienced their childhoods [@cite_original], than about a particular policy or cost factor post-2007"[@cite_original]. [@cite_original] claims that "this type of investigation is much harder to under-take with standard data and econometric techniques" and provided a some speculations, such as parents' expectation, resources (e.g. time and money) spent on children, etc.
 
-We would like to raise another hypothesis related to effects to children from the society, laws and social medias, that's LGBT movement.
 
 
 ## Effect of LGBT Movement
 
-The percentage of LGBT (and many other gender identities) population has risen in recent years in the US \@ref(fig:fig-lgbt-trend-by-year), probably related to propaganda in social medias, lawmaking and political correctness.
-This research doesn't try to investigate the causes of LGBT population growth, and since there is not much data for other genders, and LGBT are the majorities, we will focus on LGBT population and the potential effect they brought to birth rate.
+### Laws for Same Sex Marriage
 
 "On February 12, 2004, the first same-sex marriage in the United States happened in San Francisco, California."
 "On May 17, 2004, Massachusetts became the first state and sixth jurisdiction in the world to legalize same-sex marriage."
 "In 2008, California and Connecticut both legalized same-sex marriage, followed by Iowa, Vermont, and New Hampshire. Up until 2012, legalization came through state courts, the enactment of state legislation, or the result of the decisions of federal courts. On November 6, 2012, Maine, Maryland and Washington became the first states to legalize same-sex marriage through popular vote."
-"On June 26, 2015, in the landmark civil rights case Obergefell v. Hodges, the Supreme Court ruled that the fundamental right to marry is guaranteed to same-sex couples by both the Due Process Clause and the Equal Protection Clause of the Fourteenth Amendment to the United States Constitution."[@same_sex_marriage_states_2022]
+"On June 26, 2015, in the landmark civil rights case Obergefell v. Hodges, the Supreme Court ruled that the fundamental right to marry is guaranteed to same-sex couples by both the Due Process Clause and the Equal Protection Clause of the Fourteenth Amendment to the United States Constitution."[@same_sex_marriage_states_2022].
+
 The first two dates mentioned above represents the beginning of the legalization of same-sex marriage in the US, and is quite close to 2007, when the significant drop of birth rate began. There may be a composition of effects causing the significant drop of birth rate in 2007, and the legalization of same-sex population could potentially be one of main causes.
 
+### LGBT Demographics
+
 LGBT is the acronym of the following 4 gender identities, **L** for Lesbian, **G** for gay, **B** for bisexual, **T** for transgender. By definition, these genders should have a much lower birth rate than that of the heterosexual as normal births of human must depend on a male and a female. 
-Figure \@ref(fig:fig-gender-raising-children-distribution) (b) shows the percentage of LGBT population that raise children. 71% of the LGBT population don't raise children. 
 Then changes in birth rate and changes in LGBT population should have a negative proportional relationship (i.e. Growth in LGBT population leads to lower birth rate).
 Thus, the population changes in these population are very likely to make an impact on the birth rate of the US.
 
@@ -349,14 +349,6 @@ Figure \@ref(fig:fig-gender-raising-children-distribution) shows the gender dist
 Figure \@ref(fig:fig-gender-raising-children-distribution) (a) and Figure \@ref(fig:fig-gender-raising-children-distribution) (c) clearly shows that more females are non-heterosexual than male are [@will_institute].
 This could cause a lower BirthRate-LGBT coefficient on birth rate as only females are able to give births (in normal situations).
 
-
-```{r echo = FALSE, fig-density-state, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density', 'Birth Rate Distribution by State'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
-knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png", "./images/state-birth-rate-distribution.png"))
-```
-
-Figure \@ref(fig:fig-density-state) (a) and Figure \@ref(fig:fig-density-state) (b) shows the population density of Same Sex Couple and LGBT by States in the US [@will_institute].
-Figure \@ref(fig:fig-density-state) [@cite_original] (c) shows the birth rate distribution by State in the US. Darker color means higher density or larger negative change in birth rate [@will_institute]. From these plots we can see that the states with higher LGBT density and same sex couples generally have larger negative change in birth rate. States on the west generally have darker color in all three plots. We cannot conclude whether LGBT population has a large or direct impact on US birth rate based on these plots yet, but there should be some correlation between birth rate and gender identity of Americans.
-
 ```{r echo = FALSE, fig-race-distribution, fig.cap='Race Distribution', fig.subcap=c('Same Sex Couple Race Distribution', 'LGBT Race Distribution'), out.width='.30\\linewidth', fig.asp=1, fig.ncol = 2, fig.align="center"}
 knitr::include_graphics(c("./images/same-sex-couple-race-distribution.png", "./images/LGBT-race-distribution.png"))
 ```
@@ -369,14 +361,24 @@ knitr::include_graphics(c("./images/same-sex-couple-age-distribution.png", "./im
 
 From \@ref(fig:fig-age-distribution) (a) we can see that most same sex couples fall in the age group 25-64 [@will_institute]. This period overlaps with the majority of the childbearing age. From \@ref(fig:fig-age-distribution) (b) [@will_institute], we can see that LGBT population decreases as age increases starting from the age or 18, which is the beginning of women's childbearing age. Around 90% of the LGBT population have their age between 18 and 64, which covers almost all of the child bearing ages. These 2 evidences also indicate that, growth of LGBT population could lead to a larger decrease in birth rate ($\phi < -1$, lower BirthRate-LGBT coefficient).
 
-With these information, we can conclude that the growth of LGBT population is able to cause a negative change in birth rate.
+### Socioeconomic Inicators
 
 ```{r echo = FALSE, fig-LGBT-socioeconomic-indicators, fig.cap='Socioeconomic Indicators', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
 knitr::include_graphics("./images/LGBT-socioeconomic-indicators.png")
 ```
 
 Figure \@ref(fig:fig-LGBT-socioeconomic-indicators) shows some socioeconomic indicators classified by sexual orientation (LGBT or not), such as employment status, income level education level, and whether or not being insured and food insecure [@will_institute]. Darker color represents LGBT, lighter color represents non-LGBT.
-From the plots, we can extract some socioeconomic indicators of LGBT. Comparing to non-LGBT population, LGBT population might be more likely to be unemployed, uninsured, being food insecure, having a low income (lower then $24k), and having a lower education level (percentage of LGBT population with Bachelor's or post-grad degree is slightly lower than that of the percentage of non-LGBT population). It's not rigorous to conclude for certain that LGBT are more likely to have these characteristics without a more in-depth statistical analysis, as there may be statistically insignificant errors in data. However, as all characteristics related to low-income discussed here are related to LGBT, there must be some correlation between these socioeconomic indicators and LGBT population and it's also worth noticing if government plans to affect birth rate.
+From the plots, we can extract some socioeconomic indicators of LGBT. Comparing to non-LGBT population, LGBT population might be more likely to be unemployed, uninsured, being food insecure, having a low income (lower then $24k), and having a lower education level (percentage of LGBT population with Bachelor's or post-grad degree is slightly lower than that of the percentage of non-LGBT population).
+
+
+### Geographical Distribution of LGBT Population and Birth Rate
+
+```{r echo = FALSE, fig-density-state, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density', 'Birth Rate Distribution by State'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
+knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png", "./images/state-birth-rate-distribution.png"))
+```
+
+Figure \@ref(fig:fig-density-state) (a) and Figure \@ref(fig:fig-density-state) (b) shows the population density of Same Sex Couple and LGBT by States in the US [@will_institute].
+Figure \@ref(fig:fig-density-state) (c) [@cite_original] shows the birth rate distribution by state in the US. Darker color means higher density or larger negative change in birth rate [@will_institute]. From these plots we can see that the states with higher LGBT density and same sex couples generally have larger negative change in birth rate. States on the west generally have darker color in all three plots. We cannot conclude whether LGBT population has a large or direct impact on US birth rate based on these plots yet, but there should be some correlation between birth rate and gender identity of Americans.
 
 
 ```{r echo = FALSE, fig-lgbt-trend-by-year, fig.cap='LGBT Population Percentage By Year', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
@@ -387,21 +389,32 @@ knitr::include_graphics("./images/US-LGBT-percent-trend.png")
 knitr::include_graphics("./images/LGBT-percentage-by-generation.png")
 ```
 
-## LGBT and Cohort Effect
+# Discussion
+
+## Global Comparison
+
+We do observe declination of world-wide birth rate despite of the impact level from recession. From the economic perspective, the countries who are least affected tend to have a stronger resistance to recession but not necessarily developed countries. While the most affected countries are mostly developing countries, they experienced a more significant plummet as percentage. It is also intriguing that the long-term births per 1000 people tend to converge to 10 for all countries mentioned above. However, the countries have higher resistance tend to delay the convergence which may derived from stronger economic status. Overall, the Great Recession was a turning point not only for the U.S. but also the whole world in the context of birth rate. The Great Recession may not be the direct cause of the world-wide declination in birth rates but it indeed provided an opportunity and provoked the desire for people to reconsider personal priorities with changed perspective of the society.
+
+## Cohort Effects and LGBT Movement Effects
+
+With the results described in the **[Cohort Effect]** section, we can see that cohort effect can largely decrease the birth rate.
+
+"The explanation of cohort effects lies more in the way these cohorts were raised or in how they experienced their childhoods [@cite_original], than about a particular policy or cost factor post-2007"[@cite_original]. [@cite_original] claims that "this type of investigation is much harder to under-take with standard data and econometric techniques" and provided a some speculations, such as parents' expectation, resources (e.g. time and money) spent on children, etc.
+
+We would like to raise another hypothesis related to effects to children from the society, laws and social medias, that's LGBT movement.
+
+The percentage of LGBT (and many other gender identities) population has risen in recent years in the US \@ref(fig:fig-lgbt-trend-by-year), probably related to propaganda in social medias, lawmaking and political correctness.
+This analysis doesn't try to investigate the causes of LGBT population growth, and since there is not much data for other genders, and LGBT are the majorities, we will focus on LGBT population and the potential effect they brought to birth rate.
+
+With the results described in the **[Effect of LGBT Movement]** section, we showed that many factors related to LGBT population growth is able to cause a negative change in birth rate. 
+
+In section **[Socioeconomic Inicators]** we also discussed some socioeconomic characteristics of the LGBT population. The characteristics are all related to low-income or low-education level. However, it is not rigorous to conclude for certain that LGBT are more likely to have these characteristics without a more in-depth statistical analysis, as there may be statistically insignificant errors in data. However, as all characteristics related to low-income discussed here are related to LGBT, there must be some correlation between these socioeconomic indicators and LGBT population and it's also worth noticing if government wishes to adjust birth rate.
 
 Figure \@ref(fig:fig-lgbt-trend-by-year) shows the trend of LGBT population percentage in total population.
 There is an obvious increasing trend (i.e. higher percentage of the US population are becoming LGBT) [@us_lgbt_trend].
 Figure \@ref(fig:fig-lgbt-by-generation) shows the percentage of LGBT population trend in different generations [@us_lgbt_trend].
 We can also see an increasing trend of LGBT population percentage (younger generations are more and more likely to become LGBT).
 This provides more evidence that cohort effects and the growth of LGBT population may have contributed a lot to the declines of birth rate in the US in recent years.
-
-
-
-# Discussion
-
-## Global Comparison
-
-We do observe declination of world-wide birth rate despite of the impact level from recession. From the economic perspective, the countries who are least affected tend to have a stronger resistance to recession but not necessarily developed countries. While the most affected countries are mostly developing countries, they experienced a more significant plummet as percentage. It is also intriguing that the long-term births per 1000 people tend to converge to 10 for all countries mentioned above. However, the countries have higher resistance tend to delay the convergence which may derived from stronger economic status. Overall, the Great Recession was a turning point not only for the U.S. but also the whole world in the context of birth rate. The Great Recession may not be the direct cause of the world-wide declination in birth rates but it indeed provided an opportunity and provoked the desire for people to reconsider personal priorities with changed perspective of the society.
 
 
 \newpage
