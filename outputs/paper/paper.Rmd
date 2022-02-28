@@ -247,18 +247,12 @@ From \@ref(fig:fig-age-distribution) (a) we can see that most same sex couples f
 
 With these information, we can conclude that the growth of LGBT population is able to cause a negative change in birth rate.
 
-
-
 ```{r echo = FALSE, fig-LGBT-socioeconomic-indicators, fig.cap='Socioeconomic Indicators', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
 knitr::include_graphics("./images/LGBT-socioeconomic-indicators.png")
 ```
 
 Figure \@ref(fig:fig-LGBT-socioeconomic-indicators) shows some Socioeconomic Indicators classified by sexual orientation (LGBT or not), such as employment status, income level education level, and whether or not being insured and food insecure. Darker color represents LGBT, lighter color represents non-LGBT.
 From the plots, we can extract some socioeconomic indicators of LGBT. Comparing to non-LGBT population, LGBT are more likely to be unemployed, uninsured, being food insecure, having a low income (lower then $24k), and having a lower education level (percentage of LGBT population with Bachelor's or post-grad degree is lower than that of the percentage of non-LGBT population).
-
-```{r echo = FALSE, fig-cohort, fig.cap='Children Ever Born by Mother\'s Age and Birth Cohort', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
-knitr::include_graphics("./images/cohort.png")
-```
 
 ```{r cohort-plot, echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.cap="Children Ever Born by Mother Age and Birth Cohort", fig.height=4, fig.width=8}
 age_comp_pop <- read_dta(here::here("inputs/data/agecomp-seer.dta"))
@@ -322,7 +316,57 @@ ggplot() +
 Research has shown that cohort effects may have contributed to the declines of birth rate in the US[@cite_original].
 "Period effects reflect changes that affect everyone at a point in time, whereas cohort effects reflect changes across people born or raised in different years.
 "[@cite_original].
-We reproduced the plot from [@cite_original] in Figure \@ref(fig:cohort-plot).
+
+We reproduced the plot showing Fertility Rate vs Mother's age from [@cite_original] in Figure \@ref(fig:cohort-plot). This plot is basically showing the fertility rate of women in different ages across 6 generations.
+It's quite obvious that the 3 oldest cohorts (generations) have similar and higher fertility rates comparing to that of the 3 younger cohorts (generations).The 3 younger cohorts also have lower and lower fertility rate as their birthday moves forward (younger generation -> lower fertility rate).
+
+```{r fig-parity, fig.cap="Parity (ages 15-44)", echo=FALSE, fig.height=4, fig.height=3}
+birth_pop <- read_dta(here::here("inputs/data/nchs_births_pop_1990_2019.dta"))
+age_race_pop <- read_dta(here::here("inputs/data/age_race_comp_seer.dta"))
+
+merged_data <- merge(birth_pop, age_race_pop, by = c("stname", "year"))
+
+# Define new column
+merged_data$pop2044 <- with(merged_data, `pop2024.y` + `pop2534.y` + `pop3544.y`)
+
+merged_data_grouped_by <- group_by(merged_data, year) %>% summarise(fb_sum = sum(numbirth_firstbirth), sb_sum = sum(numbirth_secondbirth), tb_sum = sum(numbirth_thirdbirth), fbp_sum = sum(numbirth_fourthbirth), pop_sum = sum(pop1544))
+
+merged_data_grouped_by$brith_rate_fb <- with(merged_data_grouped_by, fb_sum / `pop_sum` * 1000)
+merged_data_grouped_by$brith_rate_sb <- with(merged_data_grouped_by, sb_sum / `pop_sum` * 1000)
+merged_data_grouped_by$brith_rate_tb <- with(merged_data_grouped_by, tb_sum / `pop_sum` * 1000)
+merged_data_grouped_by$brith_rate_fbp <- with(merged_data_grouped_by, fbp_sum / `pop_sum` * 1000)
+
+ggplot(merged_data_grouped_by, aes(x=year)) + 
+ geom_line(aes(y = brith_rate_fb, color = "First Birth")) + 
+  geom_line(aes(y = brith_rate_sb, color="Second Birth")) +
+  geom_line(aes(y = brith_rate_tb, color="Third Birth")) +
+  geom_line(aes(y = brith_rate_fbp, color="Fourth Birth")) +
+  scale_color_manual(name = "Parity (ages 15-44)", 
+                     values = c("First Birth" = "steelblue", 
+                                "Second Birth" = "orange", 
+                                "Third Birth" = "gray", 
+                                "Fourth Birth" = "yellow")) + 
+  xlab("Year") + ylab("Birth Rate (births per 1000 women)") + ggtitle("Parity (ages 15-44)")
+```
+
+Figure \@ref(fig:fig-parity) is a replication of a plot showing trends in births by "parity" (referring to the number of children for a given woman) from [@cite_original]. First and second births declined a lot since 2007, but the trend lines for third and higher order births are comparatively flat.
+The women giving their 3rd and 4th births are most likely an older cohort than the cohorts giving their 1st and 2nd births. Again, this is another evidence showing the impact brought by cohort effects.
+
+```{r echo = FALSE, fig-lgbt-trend-by-year, fig.cap='Socioeconomic Indicators', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
+knitr::include_graphics("./images/US-LGBT-percent-trend.png")
+```
+
+```{r echo = FALSE, fig-lgbt-by-generation, fig.cap='Socioeconomic Indicators', fig.asp=1, fig.ncol = 1, out.width='.80\\linewidth', fig.align="center"}
+knitr::include_graphics("./images/LGBT-percentage-by-generation.png")
+```
+
+
+Figure \@ref(fig:fig-lgbt-trend-by-year) shows the trend of LGBT population percentage in total population.
+There is an obvious increasing trend (i.e. higher percentage of the US population are becoming LGBT). 
+Figure \@ref(fig:fig-lgbt-by-generation) shows the percentage of LGBT population trend in different generations.
+We can also see an increasing trend of LGBT population percentage (younger generations are more and more likely to become LGBT).
+This provide more evidence that cohort effects may contribute to the delines of birth rate in the US in recent years.
+
 
 \newpage
 
