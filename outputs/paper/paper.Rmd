@@ -116,8 +116,9 @@ poland_data$date <- as.Date(poland_data$date)
 
 ## Global Comparison of Fertility Rate Under The Great Recession
 It shows that although the United States is at the epicenter of the global economic crisis, it is one of the countries least affected by the financial fallout. Large industrialized nations like the United States, Japan, and Germany have benefited from increasing global demand for relatively stable economies in which to invest. Instead, it is several developing countries, notably those with vulnerable capital accounts and weak macroeconomic fundamentals, that are experiencing severe economic downturns disproportionate to their roles in the crisis[@rank].
+
 \newpage
-```{r, least-affected, echo=FALSE, fig.cap="Births per 1000 People of Top Least Affected Countries"}
+```{r least-affected, echo=FALSE, fig.cap="Births per 1000 People of Top Least Affected Countries"}
 #Generating time series graphs of births per 1000 people for each least affected country
 
 china <- ggplot(china_data,aes(x=date,y= `Births per 1000 People`)) + 
@@ -159,7 +160,9 @@ ggarrange(china, japan, us, sa + rremove("x.text"),
           ncol = 2, nrow = 2)
 ```
 
+
 Figure \@ref(fig:least-affected) shows the changes of births per 1000 people of China, Japan, the U.S, and South Africa since 1950 with the prediction for the future. The births rates of China and South Africa were obviously higher than the U.S. and Japan. However, around the year of recession, the birth rate of China and Japan dropped even harder than the U.S. on the absolute level that is lower than 10 births per 1000 people.
+
 
 ```{r, most-affected, echo=FALSE, fig.cap="Births per 1000 People of Top Most Affected Countries"}
 #Generating time series graphs of births per 1000 people for each most affected country
@@ -199,6 +202,7 @@ poland <- ggplot(poland_data,aes(x=date,y= `Births per 1000 People`)) +
 ggarrange(ukraine, argentina, hungary, poland + rremove("x.text"),
           ncol = 2, nrow = 2)
 ```
+
 
 Figure \@ref(fig:most-affected) shows the changes of births per 1000 people of Ukraine, Argentina, Hungary, Poland since 1950 with prediction for the future. All these most affected countries have lower initial births rate than those least affected countries. However, the levels of births per 1000 people were similar to those least affected countries around recession except Argentina. Ukraine, Hungary, and Poland also showed a potential increase after recession but continued to decline afterwards.
 
