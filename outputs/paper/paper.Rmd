@@ -7,8 +7,7 @@ author:
   - Sijian Wu
 thanks: "Replication avaliable at https://doi.org/10.48152/ssrp-mbxx-jm47. Code and data avaliable at https://github.com/cuilantao/Investigation-of-falling-US-Birth-Rates-since-the-great-recession"         
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This paper is based on Kearney's paper \"The Puzzle of Falling US Birth Rates since the Great Recession\". ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, the US birth rate varied between a tight range of roughly 65 to 70 births per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. Maintaining the fertility rate to be around 2.1 (replacement level) is important because low fertility rate could lead to aging of population and economic stagnation of economy. In this paper, we expand our research on multiple countries and found out that not only the US was affected by the recession, but the whole World in the context of birth rate, and the most affected countries are mostly developing countries.
-We also treat the rise in the LGBT community as a potential cause for the decline in birth rate and examine its effect, and found that the growth of LGBT population may have a cohort effect and lead caused a negative impact on the birth rate."
+abstract: "This paper is based on Kearney's paper \"The Puzzle of Falling US Birth Rates since the Great Recession\". ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, the US birth rate varied between a tight range of roughly 65 to 70 births per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. Maintaining the fertility rate to be around 2.1 (replacement level) is important because low fertility rate could lead to aging of population and economic stagnation of economy. In this paper, we expanded our research on multiple countries and found out that not only the US was affected by the recession, but the whole World in the context of birth rate, and the most affected countries are mostly developing countries. We also treat the rise in the LGBT community as a potential cause for the decline in birth rate and examined its effect, and found that the growth of LGBT population may have a cohort effect and lead caused a negative impact on the birth rate."
 output:
   bookdown::pdf_document2
 toc: FALSE
@@ -42,7 +41,7 @@ Prior research suggests that stress may be linked to riskier sexual activity. Fi
 
 As mentioned by @cite_original, the basic approach to many economic problems is maximizing utility. This approach recognized that children bring people utility but also comes with associated costs including time and money. This approach to modeling the decision to have a child leads to standard predictions of price and income effects. Direct consideration of costs could be like housing and medical care. Other times the price effect is indirect, as the opportunity cost of a woman’s time. Holding prices and quality constant, an increase in income will lead people to choose to have more children. This positive relationship between income and births may come as a surprise to some readers, given the negative relationship between birth rates and income or per-capita GDP observed over time and place[@cite_original]. However, this is enough for us to consider whether the birth rates are worldwide affected in the same negative direction after the Great Recession.
 
-Another factor other than policy or economic factors that might have affected the fertility rate is cohort effect, more specifically, in this paper we focus on the rise of the LGBT community. The LGBT activity started in the 1920s and had a huge progress after the 2000s[@same_sex_marriage_states_2022]. A lot of laws that prohibited homosexual relationships were lifted and homosexual couples can get married legally and adopt kids, there is also propaganda that encourages homosexuality.
+Another factor other than policy or economic factors that might have affected the fertility rate is cohort effect, more specifically, in this paper we focus on the rise of the LGBT community. The LGBT activity started in the 1920s and had a huge progress after the 2000s[@same_sex_marriage_states_2022]. A lot of laws that prohibited homosexual relationships were lifted and homosexual couples can get married legally and adopt kids, there is also propaganda that encourages homosexuality. Birth rates and LGBT was found to be highly correlated, the growth of LGBT population could lead to lower birth rate and the growth of LGBT population is increasing rapidly in the younger generations.
 
 In this paper, we will investigate the effect of the Great Recession on the birth rate in different countries, and we will also explore the effect of the LGBT movement on the birth rate.
 
@@ -53,9 +52,9 @@ We started our analysis by using R [@r], dplyr[@dplyr], tidyverse[@tidyverse]. G
 ## Data Source
 Part of our data are from the NCHS(National Center for Health Statistics)[@nvss], in particular, we acquired the US birth rate data for the past 40 years, Figure \@ref(fig:fig-past-40-years) shows the US birth rate from 1980 - 2020, as we can see, the birth rate declined significantly after 2007, which is the time of the Great Recession. We also generated data from U.S. Birth Rate 1950-2022[@birthrate]. We selected the top 3 countries that are affected most and least by the Great Recession according to rankings determined by comparing currency devaluations, equity market declines, and rising sovereign bond spreads. These measures tend to track developments in the real economy during times of economic crisis when financial strain handicaps consumption, investment, and in many cases government spending, which limits GDP and employment growth[@rank].
 
-The data used to analyze the impact to birth rate brought by LGBT population growth comes from the School of Law, UCLA[@will_institute]. The analysis was based on the data collected for the Gallup Daily Tracking survey.
+The data used to analyze the impact to birth rate brought by LGBT population growth comes from the School of Law, UCLA[@will_institute]. The analysis was based on the data collected for the Gallup Daily Tracking survey. Respondents were obtained through list-assisted random digit dial (70% cell phone, 30% landline).
 
-The data used to analyze LGBT population trends comes from GALLUP News [@us_lgbt_trend], which is the source of data of the LGBT Demographics analysis[@will_institute]. The data is based on telephone interviews conducted in 2020 with a random sample of 15,349 adults (18+), living in the 50 states and the District of Columbia. The entire sample of national adults has a margin of sampling error is $\pm1\%$ at the $95\%$ confidence level. The results based on the total sample of 692 LGBT adults has a sample error of $\pm5\%$ with a $95\%$ confidence level. 
+The data used to analyze LGBT population trends comes from GALLUP News [@us_lgbt_trend], which is the source of data of the LGBT Demographics analysis[@will_institute]. The data is based on telephone interviews conducted in 2020 with a random sample of 15,349 adults (18+), living in the 50 states and the District of Columbia. The entire sample of national adults has a margin of sampling error is $\pm1\%$ at the $95\%$ confidence level. The results based on the total sample of 692 LGBT adults has a sample error of $\pm5\%$ with a $95\%$ confidence level.
 
 ## Data Characteristics
 The NCHS data source is very detailed, it contains a lot of demographic and geographic information. For example, for each birth, the data set records the race of the father and the mother, this can help us to analyze the birth rate among different race groups. It also contains the age of the mother and father, this can be really helpful if we want to examine the trend of teenager pregnancy.
@@ -65,15 +64,15 @@ The LGBT demographics data spans 2012 to 2017. The sample is approximately 350,0
 The GALLUP News data used to analyze LGBT population trend shows the LGBT population proportion and distribution trend from 2012 to 2020 by year and generation, as well as the distribution of sexual orientation of different gender identities.
 
 ```{r, fig-past-40-years, fig.cap="US Birth Rate in the past 40 years", echo=FALSE, warning=FALSE, message = FALSE, fig.width=10, fig.height=4}
+# import the csv
 US_birth_date_from_1985_to_2020 <- read_csv(here::here("inputs/data/Birthrate.csv"))
 
+# Plot the graph
 ggplot(data=US_birth_date_from_1985_to_2020, aes(x=`year`, y=`brate_all`, group=1)) +
   geom_line()+
   geom_point() +
   ylim(50, 80) +
   xlab("Year") + ylab("Births per 1,000 women age 15-44")
-
-
 ```
 
 ```{r, include=FALSE}
@@ -219,18 +218,25 @@ Figure \@ref(fig:most-affected) shows the changes of births per 1000 people of U
 ## Cohort Effect
 
 ```{r cohort-plot, echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.cap="Children Ever Born by Mother Age and Birth Cohort", fig.height=4, fig.width=8}
+# Read the dta
 age_comp_pop <- read_dta(here::here("inputs/data/agecomp-seer.dta"))
+# Filter out unwanted columns
 age_comp_pop <- subset(age_comp_pop, select = -c(fem1519, fem2034, fem3544, stname))
+# group by and find the sum of all columns
 age_comp_pop_grouped <- group_by(age_comp_pop, year) %>% summarise(across(everything(), sum))
+# generate vector of column names that start with fem
 age_comp_pop_grouped_start_with_fem <-
   select(age_comp_pop_grouped, starts_with("fem"))
 fem_col_name <- colnames(age_comp_pop_grouped_start_with_fem)
+# transform wide to long
 age_comp_pop_long <- gather(age_comp_pop_grouped, mage, fem, fem_col_name)
+# generate new columns
 age_comp_pop_long$mage <- gsub("^.{0,3}", "", age_comp_pop_long$mage)
+# transform it into a numeric value
 age_comp_pop_long$mage <- as.numeric(as.character(age_comp_pop_long$mage))
 age_comp_pop_long$cohort <- with(age_comp_pop_long, year - mage)
 age_comp_pop_long$cohort2 <- ''
-
+# assign different numbers based on years
 age_comp_pop_long$cohort2[age_comp_pop_long$cohort >= 1968 & age_comp_pop_long$cohort <= 1972] <- 1
 age_comp_pop_long$cohort2[age_comp_pop_long$cohort >= 1973 & age_comp_pop_long$cohort <= 1977] <- 2
 age_comp_pop_long$cohort2[age_comp_pop_long$cohort >= 1978 & age_comp_pop_long$cohort <= 1982] <- 3
@@ -241,23 +247,27 @@ age_comp_pop_long <- subset(age_comp_pop_long, cohort2 != '')
 
 names(age_comp_pop_long)[names(age_comp_pop_long) == 'fem'] <- 'pop'
 age_comp_pop_long_group <- group_by(age_comp_pop_long, cohort2, mage) %>% summarise(pop_sum = sum(pop))
+# read data files
 cohort_analysis <- read_dta(here::here("inputs/data/nchs_cohort_analysis.dta"))
+# merge two file together
 merged_data <- merge(cohort_analysis, age_comp_pop_long_group, by = c("cohort2", "mage"))
+# define new columns
 merged_data$brate <- with(merged_data, numbirth/pop_sum*1000)
 data_with_only_cohort_and_brate <- subset(merged_data, select = c(cohort2, brate, mage))
 data_with_only_cohort_and_brate <- data_with_only_cohort_and_brate[order(data_with_only_cohort_and_brate$cohort2, data_with_only_cohort_and_brate$mage),]
+# accmulate all the values
 data_with_only_cohort_and_brate$brate <- ave(data_with_only_cohort_and_brate$brate, data_with_only_cohort_and_brate$cohort2, FUN=cumsum)
 data_with_only_cohort_and_brate_grouped <- group_by(data_with_only_cohort_and_brate, cohort2, mage) %>% summarise(cum_brate = sum(brate) / 1000)
 names(data_with_only_cohort_and_brate_grouped)[names(data_with_only_cohort_and_brate_grouped) == 'cohort2'] <- 'cohort'
 final_data_wide_format <- spread(data_with_only_cohort_and_brate_grouped, key = cohort, value = cum_brate,  sep = '')
-
+# drop all na value
 data_with_cohort1 <- drop_na(final_data_wide_format, cohort1)
 data_with_cohort2 <- drop_na(final_data_wide_format, cohort2)
 data_with_cohort3 <- drop_na(final_data_wide_format, cohort3)
 data_with_cohort4 <- drop_na(final_data_wide_format, cohort4)
 data_with_cohort5 <- drop_na(final_data_wide_format, cohort5)
 data_with_cohort6 <- drop_na(final_data_wide_format, cohort6)
-
+# draw the plot
 ggplot() +
   geom_line(data = data_with_cohort1, aes(x = mage, y = cohort1, color = "1968-1972"))+
   geom_line(data = data_with_cohort2, aes(x = mage, y = cohort2, color = "1973–1977")) +
@@ -286,21 +296,21 @@ It's quite obvious that the 3 oldest cohorts (generations) have similar and high
 This reflects the impact to birth rate brought by cohort effects.
 
 ```{r fig-parity, fig.cap="Parity (ages 15-44)", echo=FALSE, fig.height=4, fig.height=3}
+# Import the dta
 birth_pop <- read_dta(here::here("inputs/data/nchs_births_pop_1990_2019.dta"))
 age_race_pop <- read_dta(here::here("inputs/data/age_race_comp_seer.dta"))
-
 merged_data <- merge(birth_pop, age_race_pop, by = c("stname", "year"))
 
 # Define new column
 merged_data$pop2044 <- with(merged_data, `pop2024.y` + `pop2534.y` + `pop3544.y`)
-
+# use a group by to get the sum
 merged_data_grouped_by <- group_by(merged_data, year) %>% summarise(fb_sum = sum(numbirth_firstbirth), sb_sum = sum(numbirth_secondbirth), tb_sum = sum(numbirth_thirdbirth), fbp_sum = sum(numbirth_fourthbirth), pop_sum = sum(pop1544))
-
+#define new columns based on existing columns
 merged_data_grouped_by$brith_rate_fb <- with(merged_data_grouped_by, fb_sum / `pop_sum` * 1000)
 merged_data_grouped_by$brith_rate_sb <- with(merged_data_grouped_by, sb_sum / `pop_sum` * 1000)
 merged_data_grouped_by$brith_rate_tb <- with(merged_data_grouped_by, tb_sum / `pop_sum` * 1000)
 merged_data_grouped_by$brith_rate_fbp <- with(merged_data_grouped_by, fbp_sum / `pop_sum` * 1000)
-
+# merge the plot and add legends
 ggplot(merged_data_grouped_by, aes(x=year)) + 
  geom_line(aes(y = brith_rate_fb, color = "First Birth")) + 
   geom_line(aes(y = brith_rate_sb, color="Second Birth")) +
