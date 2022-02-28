@@ -59,9 +59,17 @@ The data used to analyze LGBT population trends comes from GALLUP News [@us_lgbt
 ## Data Characteristics
 The NCHS data source is very detailed, it contains a lot of demographic and geographic information. For example, for each birth, the data set records the race of the father and the mother, this can help us to analyze the birth rate among different race groups. It also contains the age of the mother and father, this can be really helpful if we want to examine the trend of teenager pregnancy.
 
+
 The LGBT demographics data spans 2012 to 2017. The sample is approximately 350,000 U.S. adults (18+) who resides in the 50 states and district of Columbia. The data describes LGBT Data & Demographics such as LGBT proportion of population by states, characteristics of LGBT people (race, gender distribution, etc.), socioeconomic indicators (income, education level, etc.) and state comparison.
 
 The GALLUP News data used to analyze LGBT population trend shows the LGBT population proportion and distribution trend from 2012 to 2020 by year and generation, as well as the distribution of sexual orientation of different gender identities.
+
+Figure \@ref(fig:fig-density-state) shows the geographical distribution of LGBT and same sex couple population density, as well as birth rate density[@cite_original][@will_institute]. The three plots can give us a general idea that birth rate is correlated to LGBT population density. More detailed analysis will be in the [Results] and [Discussion] section.
+
+
+```{r echo = FALSE, fig-density-state, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density', 'Birth Rate Distribution by State'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
+knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png", "./images/state-birth-rate-distribution.png"))
+```
 
 ```{r, fig-past-40-years, fig.cap="US Birth Rate in the past 40 years", echo=FALSE, warning=FALSE, message = FALSE, fig.width=10, fig.height=4}
 # import the csv
@@ -113,10 +121,6 @@ hungary_data$date <- as.Date(hungary_data$date)
 poland_data <- read_csv(here::here("inputs/data/poland-population-2022-02-26.csv"))
 
 poland_data$date <- as.Date(poland_data$date)
-
-
-
-
 ```
 
 # Results
@@ -382,10 +386,6 @@ From the plots, we can extract some socioeconomic indicators of LGBT. Comparing 
 
 
 ### Geographical Distribution of LGBT Population and Birth Rate
-
-```{r echo = FALSE, fig-density-state, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density', 'Birth Rate Distribution by State'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
-knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png", "./images/state-birth-rate-distribution.png"))
-```
 
 Figure \@ref(fig:fig-density-state) (a) and Figure \@ref(fig:fig-density-state) (b) shows the population density of Same Sex Couple and LGBT by States in the US [@will_institute].
 Figure \@ref(fig:fig-density-state) (c) [@cite_original] shows the birth rate distribution by state in the US. Darker color means higher density or larger negative change in birth rate [@will_institute]. From these plots we can see that the states with higher LGBT density and same sex couples generally have larger negative change in birth rate. States on the west generally have darker color in all three plots. We cannot conclude whether LGBT population has a large or direct impact on US birth rate based on these plots yet, but there should be some correlation between birth rate and gender identity of Americans.
