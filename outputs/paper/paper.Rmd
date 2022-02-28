@@ -200,13 +200,7 @@ ggarrange(ukraine, argentina, hungary, poland + rremove("x.text"),
 
 Figure \@ref(fig:most-affected) shows the changes of births per 1000 people of Ukraine, Argentina, Hungary, Poland since 1950 with prediction for the future. All these most affected countries have lower initial births rate than those least affected countries. However, the levels of births per 1000 people were similar to those least affected countries around recession except Argentina. Ukraine, Hungary, and Poland also showed a potential increase after recession but continued to decline afterwards.
 
-<<<<<<< HEAD
-## Effect of LGBT movement
-=======
-We do observe declinations of world-wide birth rate despite of the impact level from recession. From the economic perspective, the countries who are least affected tend to have a stronger resistance to recession but not necessarily developed countries. While the most affected countries are mostly developing countries, they experienced a more significant plummet as percentage. It is also intriguing that the long-term births per 1000 people tend to converge to 10 for all countries mentioned above. However, the countries have higher resistance tend to delay the convergence which may derived from stronger economic status. Overall, the Great Recession was a turning point not only for the U.S. but also the whole world in the context of birth rate. The Great Recession may not be the direct cause of the world-wide declination in birth rates but it indeed provided an opportunity and provoked the desire for people to reconsider personal priorities with changed perspective of the society.
-
 ## Effect of LGBT Movement
->>>>>>> dce133630df142da93e120527ceec753178efac5
 
 The percentage of LGBT (and many other gender identities) population has risen in recent years in the US, probably related to propaganda and political correctness.
 
