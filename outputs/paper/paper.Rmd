@@ -250,7 +250,7 @@ knitr::include_graphics("./images/LGBT-socioeconomic-indicators.png")
 ```
 
 Figure \@ref(fig:fig-LGBT-socioeconomic-indicators) shows some socioeconomic indicators classified by sexual orientation (LGBT or not), such as employment status, income level education level, and whether or not being insured and food insecure [@will_institute]. Darker color represents LGBT, lighter color represents non-LGBT.
-From the plots, we can extract some socioeconomic indicators of LGBT. Comparing to non-LGBT population, LGBT are more likely to be unemployed, uninsured, being food insecure, having a low income (lower then $24k), and having a lower education level (percentage of LGBT population with Bachelor's or post-grad degree is slightly lower than that of the percentage of non-LGBT population).
+From the plots, we can extract some socioeconomic indicators of LGBT. Comparing to non-LGBT population, LGBT population might be more likely to be unemployed, uninsured, being food insecure, having a low income (lower then $24k), and having a lower education level (percentage of LGBT population with Bachelor's or post-grad degree is slightly lower than that of the percentage of non-LGBT population). It's not rigorous to conclude that LGBT are more 
 
 ## Cohort Effect
 
