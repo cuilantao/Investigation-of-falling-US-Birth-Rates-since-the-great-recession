@@ -188,10 +188,12 @@ The percentage of LGBT (and many other gender identities) population has risen i
 
 Since there is not much data for other genders, and LGBT are the majorities, we will focus on LGBT population and the potential effect they bring to birth rate.
 
-LGBT is the acronym of the following 4 gender identities, **L** for Lesbian, **G** for gay, **B** for bisexual, **T** for transgender. By definition, these genders should have a much lower birth rate than heterosexual. Then change in birth rate and change in LGBT population should have a negative propotional relationship (i.e. Growth in LGBT population leads to lower birth rate).
+LGBT is the acronym of the following 4 gender identities, **L** for Lesbian, **G** for gay, **B** for bisexual, **T** for transgender. By definition, these genders should have a much lower birth rate than that of the heterosexual as normal births of human must depend on a male and a female. 
+Figure \@ref(fig:fig-gender-raising-children-distribution) (b) shows the percentage of LGBT population that raise children. 71% of the LGBT population don't raise children. 
+Then changes in birth rate and changes in LGBT population should have a negative proportional relationship (i.e. Growth in LGBT population leads to lower birth rate).
 Thus, the population changes in these population are very likely to make an impact on the birth rate of the US.
 
-If we assume the simpliest case where we ignore race, gender distribution (equal percentage of male and female) and all other factors, and assume that no LGBT or same sex couple population give birth to a child, then there would be a perfect correlation (perfectly proportional) between LGBT population change and birth rate (i.e. a $x\%$ increase in LGBT population could lead to $x\%$ decrease in birth rate). Let's define $\phi = \frac{\Delta Birth Rate}{\Delta LGBTPopulation}$ and call $\phi$ the BirthRate-LGBT coefficient for convenience. If we take other factors into account, the impact to birth rate could be even larger (i.e. $\phi<-1$).
+If we assume the simpliest scenario where we ignore race, gender distribution (equal percentage of male and female) and all other factors, and assume that no LGBT or same-sex-couple population give birth to a child, then there would be a perfect correlation (perfectly proportional) between LGBT population change and birth rate (i.e. an $x\%$ increase in LGBT population could lead to an $x\%$ decrease in birth rate). Let's define $\phi = \frac{\Delta Birth Rate}{\Delta LGBTPopulation}$ and call $\phi$ the BirthRate-LGBT coefficient for convenience. Basically, lower BirthRate-LGBT coefficient means lower birth rate while holding LGBT population constant. If we take other factors into account, the impact to birth rate could be even larger (i.e. $\phi<-1$).
 
 ```{r echo = FALSE, fig-gender-raising-children-distribution, fig.cap='Gender Distribution and Percentage Raising Children Distribution', fig.subcap=c('LGBT Gender Distribution', 'LGBT Percentage Raising Children', 'Same Sex Couple Gender Distribution'), out.width='.33\\linewidth', fig.asp=1, fig.ncol = 3}
 knitr::include_graphics(c("./images/LGBT-Gender-distribution.png",
@@ -199,31 +201,29 @@ knitr::include_graphics(c("./images/LGBT-Gender-distribution.png",
   "./images/same-sex-couple-gender-distribution.png"))
 ```
 
-Figure \@ref(fig:fig-gender-raising-children-distribution) shows the gender distribution of LGBT and Same Sex Couple as well as the percentage raising children.
-Figure \@ref(fig:fig-gender-raising-children-distribution) (a) and Figure \@ref(fig:fig-gender-raising-children-distribution) (c) clearly shows that more females are non-heterosexual.
-This should make a even larger impact ($\phi<-1$) on birth rate as only females are able to give births (in normal situations).
-went
-Figure \@ref(fig:fig-gender-raising-children-distribution) (b) shows the percentage of LGBT population that raise children. 71% of the LGBT population don't raise children. 
+Figure \@ref(fig:fig-gender-raising-children-distribution) shows the gender distribution of LGBT and Same Sex Couple as well as well as the percentage raising children.
+Figure \@ref(fig:fig-gender-raising-children-distribution) (a) and Figure \@ref(fig:fig-gender-raising-children-distribution) (c) clearly shows that more females are non-heterosexual than male are.
+This could cause a lower BirthRate-LGBT coefficient on birth rate as only females are able to give births (in normal situations).
+
 
 ```{r echo = FALSE, fig-density-state, fig.cap='Density by State', fig.subcap=c('Same Sex Couple State Density', 'LGBT State Density', 'Birth Rate Distribution by State'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2}
 knitr::include_graphics(c("./images/same-sex-couple-state-density.png", "./images/LGBT-state-density.png", "./images/state-birth-rate-distribution.png"))
 ```
 
-Figure \@ref(fig:fig-density-state) shows the population density of Same Sex Couple and LGBT by States, and birth rate distribution by State. Darker color means higher density or higher negative change in birth rate. From these plots we can see that the states with higher LGBT density and same sex couples generally have higher negative change in birth rate. We cannot conclude whether LGBT population has a large impact on US birth rate based on these plots yet, but there should be some correlation between birth rate and gender identity of Americans.
-
+Figure \@ref(fig:fig-density-state) (a) and Figure \@ref(fig:fig-density-state) (b) shows the population density of Same Sex Couple and LGBT by States in the US.
+Figure \@ref(fig:fig-density-state) [@cite_original] (c) shows the birth rate distribution by State in the US. Darker color means higher density or larger negative change in birth rate. From these plots we can see that the states with higher LGBT density and same sex couples generally have larger negative change in birth rate. States on the west generally have darker color in all three plots. We cannot conclude whether LGBT population has a large or direct impact on US birth rate based on these plots yet, but there should be some correlation between birth rate and gender identity of Americans.
 
 ```{r echo = FALSE, fig-race-distribution, fig.cap='Race Distribution', fig.subcap=c('Same Sex Couple Race Distribution', 'LGBT Race Distribution'), out.width='.30\\linewidth', fig.asp=1, fig.ncol = 2, fig.align="center"}
 knitr::include_graphics(c("./images/same-sex-couple-race-distribution.png", "./images/LGBT-race-distribution.png"))
 ```
 
-From \@ref(fig:fig-race-distribution) we can see that White population takes up the majority of the population of LGBT and Same Sex Couple. White is also the majority of the population of the US. Thus, larger LGBT population could lead to a even larger decrease in birth rate ($\phi<-1$).
+From \@ref(fig:fig-race-distribution) we can see that White population takes up the majority of the population of LGBT and Same Sex Couple. White is also the majority of the population of the US. Thus, larger LGBT population could lead to a even larger decrease in birth rate ($\phi<-1$, lower BirthRate-LGBT coefficient).
 
 ```{r echo = FALSE, fig-age-distribution, fig.cap='LGBT and Same Sex Couple Age Distribution', fig.subcap=c('Same Sex Couple Race Distribution', 'LGBT Race Distribution'), out.width='.40\\linewidth', fig.asp=1, fig.ncol = 2, fig.align="center"}
 knitr::include_graphics(c("./images/same-sex-couple-age-distribution.png", "./images/LGBT-age-distribution.png"))
 ```
 
-From \@ref(fig:fig-age-distribution) (a) we can see that most same sex couples fall in the age group 25-64. This period overlaps with the majority of the childbearing age. From \@ref(fig:fig-age-distribution) (b), we can see that LGBT population decreases as age increases starting from the age or 18, which is the beginning of women's childbearing age. These 2 evidences also growth of LGBT population could lead to a larger decrease in birth rate ($\phi < -1$).
-
+From \@ref(fig:fig-age-distribution) (a) we can see that most same sex couples fall in the age group 25-64. This period overlaps with the majority of the childbearing age. From \@ref(fig:fig-age-distribution) (b), we can see that LGBT population decreases as age increases starting from the age or 18, which is the beginning of women's childbearing age. Around 90% of the LGBT population have their age between 18 and 64, which covers almost all of the child bearing ages. These 2 evidences also indicate that, growth of LGBT population could lead to a larger decrease in birth rate ($\phi < -1$, lower BirthRate-LGBT coefficient).
 
 With these information, we can conclude that the growth of LGBT population is able to cause a negative change in birth rate.
 
