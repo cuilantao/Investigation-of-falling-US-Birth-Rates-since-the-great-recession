@@ -5,9 +5,9 @@ author:
   - Lantao Cui
   - Huakun Shen
   - Sijian Wu
-thanks: "Replication avaliable at https://doi.org/10.48152/ssrp-mbxx-jm47. Code and data avaliable at https://github.com/cuilantao/STA304-Paper-2"         
+thanks: "Replication avaliable at https://doi.org/10.48152/ssrp-mbxx-jm47. Code and data avaliable at https://github.com/cuilantao/Investigation-of-falling-US-Birth-Rates-since-the-great-recession"         
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This paper is based on Kearney's paper The Puzzle of Falling US Birth Rates since the Great Recession Between 1980. ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, US birth rate varied between a tight range of roughly 65 to 70 birth per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. In this paper, we aim to find out the reason behind the decline, all of the data are collected from the CDC Vital Statistics Births Reports. Our findings can help to understand the reason behind the drop. "
+abstract: "This paper is based on Kearney's paper The Puzzle of Falling US Birth Rates since the Great Recession Between 1980. ^[Original paper available at: https://www.aeaweb.org/articles?id=10.1257/app.2.2.95] [@cite_original] During the Great Recession, US birth rate varied between a tight range of roughly 65 to 70 birth per 1000 women between the age of 15 to 44. However, after the Great Recession, the birth rate started to decline significantly, it dropped by nearly 20 percent in 13 years. In this paper, we will expand our research on multiple countries and find out whether the level of impact from recession would be correlated with the changes in the birth rate for different countries. We will also treat the rise in the LGBT community as a potential cause for the decline in birth rate and examine its effect"
 output:
   bookdown::pdf_document2
 toc: FALSE
@@ -28,19 +28,34 @@ library(ggpubr)
 
 # Introduction
 
-The Great Recession has been a world-wide crisis that reconstructed the economy, and was deep, synchronous and global. Canadian GDP dropped by 3.3 percent, US GDP by close to 4 percent, that of the Euro area by 5 percent and that of Japan by more than 8 percent. The impact on international trade has been severe that all G20 countries experienced serious reductions in trade[@recession]. Although it is difficult to compare across countries since policy context, society norms and cultural preferences tend to differ, it is never possible to separately consider the effects on each country even after recovery. 
+The Great Recession has been a world-wide crisis that reconstructed the economy, and was deep, synchronous and global. Canadian GDP dropped by 3.3 percent, US GDP by close to 4 percent, that of the Euro area by 5 percent and that of Japan by more than 8 percent. The impact on international trade has been severe that all G20 countries experienced serious reductions in trade[@recession]. Apart from economic impact, the great recession also had a negative impact on country's birth rate, Figure 1 shows the US birth rate from 1980 - 2020, as we can see, the birth rate declined significantly after 2007, which is the time of the Great Recession.
+
+```{r, fig.cap="US Birth Rate in the past 40 years", echo=FALSE, warning=FALSE, message = FALSE, fig.width=10, fig.height=4}
+US_birth_date_from_1985_to_2020 <- read_csv(here::here("inputs/data/Birthrate.csv"))
+
+ggplot(data=US_birth_date_from_1985_to_2020, aes(x=`year`, y=`brate_all`, group=1)) +
+  geom_line()+
+  geom_point() +
+  ylim(50, 80) +
+  xlab("Year") + ylab("Births per 1,000 women age 15-44")
+
+
+```
 
 
 In the United States, unemployment rates, mortgage foreclosures, and poverty rates rose while housing values fell, but the extent of these changes varied widely across local areas. Another impact from depressed economic condition is delayed childbearing, and others to hasten it. The fertility rate declined at the national level, dropping from a recent high in 2007 of 69.5 births per 1,000 women aged 15 to 44, to 63.2 for 2012.1 There was, however, great variation by state, age, and ethnicity, with younger and Hispanic women showing disproportionate decreases[@fertility]. The significant consequence on fertility rate would make us wonder how severe is America being affected by the great recession. However,  by comparing currency devaluations, equity market declines, and rising sovereign bond spreads, the U.S. is the third leas affected country[@rank].
 
-Prior research suggests that stress may be linked to riskier sextual activity. Financial hardship and poverty can negatively affect cognitive function, and shorten the time horizons over which individuals make cost-benefit determinations. Alternatively, fertility may be unaffected by economic conditions if cultural norms related to the context and timing of births are particularly influential. For example, non-marital births are more socially consequential for some racial and ethnic groups, and in some geographic areas. For some individuals, these social norms may outweigh any economic considerations[@fertility]. The same consideration of religious belief could also be applied to other countries.
+Prior research suggests that stress may be linked to riskier sexual activity. Financial hardship and poverty can negatively affect cognitive function, and shorten the time horizons over which individuals make cost-benefit determinations. Alternatively, fertility may be unaffected by economic conditions if cultural norms related to the context and timing of births are particularly influential. For example, non-marital births are more socially consequential for some racial and ethnic groups, and in some geographic areas. For some individuals, these social norms may outweigh any economic considerations[@fertility]. The same consideration of religious belief could also be applied to other countries.
 
+Another thing that might have affected the fertility rate is the rise of the LGBT community, the LGBT activity started at the 1920s and had huge progress after 2000s. A lot of laws that prohibited homosexual relationship were lifted and homosexual couples can get married legally and adopt kids, there are also propaganda that encourages homosexuality.
 
-
+In this paper, we will investigate the effect of the Great Recession on the birth rate in different countries, and we will also explore the effect of LGBT movement on birth rate.
 
 # Data
 
 We started our analysis by using R [@r], dplyr[@dplyr], tidyverse[@tidyverse]. Graphs are generated using ggpubr[@ggpubr] and ggplot2[@ggplot2].
+
+
 ```{r, include=FALSE}
 #importing the Birth Rate 1950-2022 of the least affected countries: China, Japan, and the United States from https://www.macrotrends.net/countries/USA/united-states/birth-rate
 #Then modify the 'date' variable of each into Date format for graphs by using as.Date
